@@ -6,7 +6,7 @@ st.write("""
 #광고 신청
 """)
 
-df = pd.read_csv("output.csv")
+#df = pd.read_csv("output.csv")
 x = st.slider('x') # 👈 this is a widget
 st.write(x, 'squared is', x * x)
 st.write(df)
