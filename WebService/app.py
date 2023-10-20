@@ -11,7 +11,7 @@ from dateutil import parser
 #제목
 col1,empty2,col2 = st.columns([1, 0.3, 8.7])
 with col1 :
-    st.image("phoenix.png", width=80)
+    st.title("건설 안전사고 위험도 예측 서비스\n")
 with col2 :
     st.title("건설 안전사고 위험도 예측 서비스\n")
 
