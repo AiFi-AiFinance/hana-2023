@@ -44,8 +44,8 @@ df.loc['공사기간'] = dur
 #(3) 시설물종류 (건축~)
 col1,empty2,col2 = st.columns([1, 0.03, 1])
 with col1 :
-    facility = ['건축', '산업환경설비', '조경', '토목', '기타']
-    selected_facility = st.selectbox('시설물종류를 선택해주세요.',facility)
+    facility = ['문화/생활', '여행/해외', '쇼핑/무이자', '정기결제', '할인/캐시백', '응모/경품', 'QR 결제']
+    selected_facility = st.selectbox('카테고리',facility)
 string = '시설물 종류_'
 df.loc[string + selected_facility] = 1.0
     
