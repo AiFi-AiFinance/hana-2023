@@ -20,7 +20,7 @@ def age_to_int(data_string):
         age = (int(data_string[0])*10) -5
     else:
         # 예외 처리를 하거나 None 값을 반환합니다.
-        median_value = None
+        age = None
     return age
 # 구분_성별("F", string): 원핫인코딩
 # 구분_직장("기타소득자", string): 원핫인코딩
@@ -35,7 +35,7 @@ def str_to_median(data_str):
 
     elif '억원미만' in data_str:
         value = int(data_str[0])
-        median_value = (value -1) * 1000000000
+        median_value = (value) * 1000000000 
         
     elif '억원이상' in data_str:
         value = int(data_str[0])
@@ -46,7 +46,7 @@ def str_to_median(data_str):
         # 문자열을 '-' 기준으로 분리하여 최소값과 최대값을 추출합니다.
         range_list = data_str.split('-')
         min_value = int(range_list[0])
-        max_value = int(range_list[1][:-1])
+        max_value = int(range_list[1][0])
         
         # 최소값과 최대값을 더한 후 2로 나누어 중앙값을 계산합니다.
         median_value = (min_value + max_value) / 2.0
