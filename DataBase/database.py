@@ -1,4 +1,6 @@
+import pandas as pd
 import psycopg2
+
 
 # 데이터 베이스 연결하기
 class Databases():
