@@ -51,7 +51,7 @@ with col1 :
 with col2 :
     end_day = st.date_input('광고 종료일을 선택해주세요.')
     
- #(5) 공사기간 계산
+ #(5) 광고 기간 계산
 start_day = parser.parse(str(start_day))
 end_day = parser.parse(str(end_day))
 dur = (end_day - start_day).days
