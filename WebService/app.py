@@ -71,30 +71,13 @@ with col1 :
 
 
 
-#(8) 시설관리공사 (공공,민간)
+#(8) 광고 대상 (공공,민간)
 with col2 :
-    selected_item3 = st.radio("시설관리공사를 선택해주세요.", ("공공", "민간"))
+    selected_item3 = st.radio("광고대상을 선택해주세요.", ("개인", "기업"))
     st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 if (selected_item3 == "공공"):
     df.loc['시설관리공사'] = 1.0
 
-#(9) 공사비 (~원)
-with col1 :
-    cost = st.text_input('공사비를 입력해주세요. (단위: 억 원)', value="", placeholder="10억 원이라면 '10'이라고 입력해주세요")
-#df['공사비'] = float(cost)
-if cost:
-    df.loc['공사비'] = float(cost)
-else:
-    df.loc['공정률'] = None
-
-#(10) 작업자수 (~명)
-with col2 :
-    person = st.text_input('작업자수를 입력해주세요.  (단위 : 명)', value="", placeholder="1,000명이라면 '1000'이라고 입력해주세요")
-#df['작업자수'] = float(person)
-if person:
-    df.loc['작업자수'] = float(person)
-else:
-    df.loc['작업자수'] = None
 
 #(11, 12, 13) 날씨, 기온, 습도 -> 따로 입력X
 
