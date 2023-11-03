@@ -22,12 +22,6 @@ from dateutil import parser
 col1,empty2,col2 = st.columns([1, 0.3, 8.7])
 
 
-
-with st.empty():
-    for seconds in range(60):
-        st.write(f"⏳ {seconds} seconds have passed")
-        time.sleep(1)
-    st.write("✔️ 1 minute over!")
     
 
 with col2 :
