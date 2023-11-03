@@ -34,7 +34,7 @@ with col1 :
     store_name = st.text_input('업체명을 입력해주세요.', value="")
     email = st.text_input('이메일을 입력해주세요.', value="")
     phone = st.text_input('전화번호를 입력해주세요.', value="")
-    passwd = st.text_input('비밀번호를 입력해주세요.', value="")
+    passwd = st.text_input('비밀번호를 입력해주세요.', value="", type='password')
     
 #(2) 광고 텍스트 (~원)
 with col2 :
