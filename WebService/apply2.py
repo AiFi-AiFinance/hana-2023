@@ -20,11 +20,17 @@ from dateutil import parser
 #제목
 col1,empty2,col2 = st.columns([1, 0.3, 8.7])
 
+import streamlit as st
+import time
+
+with st.empty():
+    for seconds in range(60):
+        st.write(f"⏳ {seconds} seconds have passed")
+        time.sleep(1)
+    st.write("✔️ 1 minute over!")
+
 with col2 :
     st.title("기업 광고 신청페이지\n")
-
-with empty2 :
-    empty() #여백부분
 
 
 #------------아래는 입력 (총 13개)---------
