@@ -23,7 +23,8 @@ col1,empty2,col2 = st.columns([1, 0.3, 8.7])
 with col2 :
     st.title("기업 광고 신청페이지\n")
 
-with empty2
+with empty2 :
+    empty() #여백부분
 
 
 #------------아래는 입력 (총 13개)---------
