@@ -19,10 +19,11 @@ from dateutil import parser
 
 #제목
 col1,empty2,col2 = st.columns([1, 0.3, 8.7])
-low1,enmty2,low2 = st.low([1, 0.5, 5])
 
-with col2, low1 :
+with col2 :
     st.title("기업 광고 신청페이지\n")
+
+with empty2
 
 
 #------------아래는 입력 (총 13개)---------
@@ -30,7 +31,7 @@ with col2, low1 :
 col1,empty2,col2 = st.columns([1, 0.03, 1])
 
 #(1) 업체명 이메일 전화번호 비밀번호
-with col1, low2 :
+with col1 :
     st.subheader("기업 정보")
     store_name = st.text_input('업체명을 입력해주세요.', value="")
     email = st.text_input('이메일을 입력해주세요.', value="")
