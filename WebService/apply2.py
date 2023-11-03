@@ -1,4 +1,3 @@
-from lib2to3.pgen2.pgen import DFAState
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -52,8 +51,6 @@ with col2 :
 with col2 :
     summary = ['선택해주세요', '문화/생활', '여행/해외', '쇼핑/무이자', '정기결제', '할인/캐시백', '응모/경품', 'QR 결제']
     selected_summary = st.selectbox('카테고리',summary)
-string = '광고 종류_'
-DFAState.loc[string + selected_summary] = 1.0
 
 
 #(3) 이미지 넣기 (~원)
@@ -71,6 +68,6 @@ start_date = parser.parse(str(start_date))
 deadline = parser.parse(str(deadline))
 dur = (deadline - start_date).days
 if (dur <= 0): st.error("광고기간 입력 오류입니다. 입력한 광고 시작일과 종료일을 다시 한 번 확인해주세요.")
-DFAState.loc['광고 기간'] = dur
+df.loc['광고 기간'] = dur
    
 
