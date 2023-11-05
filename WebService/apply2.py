@@ -24,6 +24,7 @@ import streamlit as st
 import time
 
 
+
 with col2 :
     st.title("기업 광고 신청페이지\n")
 
@@ -43,7 +44,7 @@ with col1 :
 #(2) 광고 텍스트 (~원)
 with col2 :
     st.subheader("광고 정보")
-    title = st.text_input('광고 제목을 입력해주세요.', value="")
+    title = st.text_input('광고 제목을 입력해 주세요.', value="")
     contents = st.text_area('광고 내용을 입력해주세요.', value="")
     
 
@@ -52,7 +53,7 @@ with col2 :
 with col2 :
     summary = ['선택해주세요', '문화/생활', '여행/해외', '쇼핑/무이자', '정기결제', '할인/캐시백', '응모/경품', 'QR 결제']
     selected_summary = st.selectbox('카테고리',summary)
-string = '광고 종류_'
+string = '광고 종류'
 df.loc[string + selected_summary] = 1.0
 
 
