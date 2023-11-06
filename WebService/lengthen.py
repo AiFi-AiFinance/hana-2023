@@ -32,6 +32,7 @@ with col1 :
     st.subheader("기업 정보")
     store_name = st.text_input('업체명을 입력해주세요.', value="")
     passwd = st.text_input('비밀번호를 입력해주세요.', value="", type='password')
+    
 
 #(2) 연장기간 (yy.mm.dd ~ yy.mm.dd)
 with col2 :
