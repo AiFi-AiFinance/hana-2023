@@ -20,10 +20,12 @@ from dateutil import parser
 #제목
 col1,empty2,col2 = st.columns([1, 0.3, 8.7])
 
-import streamlit as st
-import time
 
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 5cd0740d25c8f4d60294483306cdd3fc220e53cb
 
 with col2 :
     st.title("기업 광고 신청페이지\n")
@@ -53,8 +55,11 @@ with col2 :
 with col2 :
     summary = ['선택해주세요', '문화/생활', '여행/해외', '쇼핑/무이자', '정기결제', '할인/캐시백', '응모/경품', 'QR 결제']
     selected_summary = st.selectbox('카테고리',summary)
+<<<<<<< HEAD
 string = '광고 종류'
 df.loc[string + selected_summary] = 1.0
+=======
+>>>>>>> 5cd0740d25c8f4d60294483306cdd3fc220e53cb
 
 
 #(3) 이미지 넣기 (~원)
