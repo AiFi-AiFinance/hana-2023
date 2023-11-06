@@ -25,6 +25,8 @@ with col2 :
 
 
 
+col1,empty2,col2 = st.columns([1, 0.03, 1])
+
 #(1) 연장기간 (yy.mm.dd ~ yy.mm.dd)
 with col2 :
     st.subheader("광고 정보")
