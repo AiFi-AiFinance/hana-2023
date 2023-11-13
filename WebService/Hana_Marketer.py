@@ -29,7 +29,7 @@ with col1:
 with col2:
     st.title("하나뿐인 마케터 메인 페이지 입니다.👋\n")
     st.text("왼쪽에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n\n")
-    st.markdown("***")
+st.markdown("***")
 
 col1,empty2,col2 = st.columns([1, 0.03, 1])
 
@@ -39,10 +39,10 @@ with col1:
     
 with col2:
     st.subheader("하나금융 파워온 프로젝트를 하면서...")
+    st.markdown("블로그에 글도 쓰고, [AiFi의 WiFi 블로그](https://blog.naver.com/annkwon11234)")
+    st.markdown("깃허브에 코드 올리고, [AiFi의 깃허브](https://github.com/AiFi-AiFinance)")
     st.title("즐거웠습니다.")
-    st.markdown("[AiFi의 WiFi 블로그](https://blog.naver.com/annkwon11234)")
-    st.markdown("[AiFi의 깃허브](https://github.com/AiFi-AiFinance)")
-
+    
 st.subheader("최종성과 발표 자료")
 tab1, tab2, tab3 = st.tabs(["표지", "목차", "기획 의도"])
 
