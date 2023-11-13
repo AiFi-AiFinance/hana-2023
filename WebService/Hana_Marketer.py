@@ -21,7 +21,7 @@ with st.spinner(text="페이지 로딩중..."):
 
 # 페이지 헤더, 서브헤더 제목 설정
 st.header("하나뿐인 마케터 메인페이지입니다.👋")
-st.subheader("\n좌측에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n")
+st.text("좌측에서 광고 신청 및 로그인 후 이용하실 수 있습니다.")
 
 
 col1,empty2,col2 = st.columns([1, 0.03, 1])
@@ -35,19 +35,19 @@ with col2:
     st.markdown("[AiFi의 깃허브](https://github.com/AiFi-AiFinance)")
 
 st.subheader("최종성과 발표 자료")
-tab1, tab2, tab3 = st.tabs(["표지", "개발 동기", "서비스 소개"])
+tab1, tab2, tab3 = st.tabs(["표지", "목차", "기획 의도"])
 
 with tab1:
-    st.header("표지")
+    st.subheader("표지")
     image1 = Image.open('001.png')
     st.image(image1)
 
 with tab2:
-    st.header("개발 동기")
+    st.subheader("목차")
     image2 = Image.open('002.png')
     st.image(image2) 
 
 with tab3:
-    st.header("서비스 소개")
+    st.subheader("기획 의도")
     image3 = Image.open('003.png')
     st.image(image3)
