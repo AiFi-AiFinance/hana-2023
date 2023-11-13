@@ -27,8 +27,8 @@ with col1:
     st.image(image_logo)
     
 with col2:
-    st.title("기업 광고 신청페이지\n👋")
-st.text("왼쪽에서 광고 신청 및 로그인 후 이용하실 수 있습니다.")
+    st.title("기업 광고 신청페이지👋\n")
+st.text("왼쪽에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n\n")
 
 
 col1,empty2,col2 = st.columns([1, 0.03, 1])
