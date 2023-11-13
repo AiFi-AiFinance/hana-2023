@@ -1,4 +1,4 @@
-# pages/2_Chart_Demo.py
+# pages/2_Report.py
 
 import streamlit as st
 import pandas as pd
@@ -14,9 +14,9 @@ st.set_page_config(
 )
 
 st.markdown("# Mapping Demo")
-st.sidebar.header("Mapping Demo")
+st.sidebar.header("로그인")
 st.write(
-    """This demo shows how to use
+    """This demo shows how to us인
 [`st.pydeck_chart`](https://docs.streamlit.io/library/api-reference/charts/st.pydeck_chart)
 to display geospatial data."""
 )
@@ -73,6 +73,11 @@ try:
             width_max_pixels=30,
         ),
     }
+    
+    st.sidebar.markdown("### 기업 정보를 입력해주세요.")
+    store_name = st.sidebar.text_input('업체명을 입력해주세요.', value="")
+    passwd = st.sidebar.text_input('비밀번호를 입력해주세요.', value="", type='password')
+    
     st.sidebar.markdown("### Map Layers")
     selected_layers = [
         layer
