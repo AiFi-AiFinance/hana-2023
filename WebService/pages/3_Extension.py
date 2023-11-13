@@ -14,13 +14,16 @@ st.set_page_config(
     layout="wide",
 )
 
-#(2) 연장기간 (yy.mm.dd ~ yy.mm.dd)
-st.subheader("광고 연장 기간을 입력해주세요.")
-start_date = st.date_input('광고 종료일을 선택해주세요.')
-deadline = st.date_input('광고 연장일을 선택해주세요.')
+col1,empty2,col2 = st.columns([1, 0.03, 1])
+
+with col1:
+    #(2) 연장기간 (yy.mm.dd ~ yy.mm.dd)
+    st.subheader("광고 연장 기간을 입력해주세요.")
+    start_date = st.date_input('광고 종료일을 선택해주세요.')
+    deadline = st.date_input('광고 연장일을 선택해주세요.')
     
- #(3) 광고 기간 계산
-start_date = parser.parse(str(start_date))
-deadline = parser.parse(str(deadline))
-dur = (deadline - start_date).days
-if (dur <= 0): st.error("광고기간 입력 오류입니다. 입력한 광고 종료일과 연장일을 다시 한 번 확인해주세요.")
+    #(3) 광고 기간 계산
+    start_date = parser.parse(str(start_date))
+    deadline = parser.parse(str(deadline))
+    dur = (deadline - start_date).days
+    if (dur <= 0): st.error("광고기간 입력 오류입니다. 입력한 광고 종료일과 연장일을 다시 한 번 확인해주세요.")
