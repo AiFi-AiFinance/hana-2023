@@ -29,6 +29,8 @@ st.image(img_url, caption='Soyeon Seungyeon Sunghyun')
 image = Image.open('images/001.png', 'rb')
 st.image(image, caption='ppt001')
 
+image = Image.open('images/001.png')
+st.image(image, caption='ppt001')
 
 # 페이지 컬럼 분할(예: 부트스트랩 컬럼, 그리드)
 # cols = st.columns((1, 1, 2))
