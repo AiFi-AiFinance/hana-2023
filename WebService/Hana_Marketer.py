@@ -32,7 +32,8 @@ with col1:
 with col2:
     st.subheader("하나금융 파워온 프로젝트를 하면서...")
     st.markdown("[AiFi의 WiFi 블로그](https://blog.naver.com/annkwon11234)")
-    st.markdown("[![AiFi's GitHub stats](https://github-readme-stats.vercel.app/api?username=AiFi-AiFinance)](https://github.com/anuraghazra/github-readme-stats)")
+    st.markdown("![AiFi's github stats](https://github-readme-stats.vercel.app/api?username=anuraghazra&orgs=acme,evilcorp,fsociety)")
+    st.markdown("[![Soyeon's GitHub stats](https://github-readme-stats.vercel.app/api?username=annkwon1123)](https://github.com/anuraghazra/github-readme-stats)")
 
 image1 = Image.open('001.png')
 st.image(image1)
