@@ -20,26 +20,27 @@ with st.spinner(text="페이지 로딩중..."):
     sleep(2)
 
 # 페이지 헤더, 서브헤더 제목 설정
-col1,empty2,col2 = st.columns([1, 0.3, 8.7])
+col1,empty2,col2 = st.columns([1, 0.1, 8.9])
 
 with col1:
     image_logo = Image.open('aifi_logo.png')
     st.image(image_logo)
     
 with col2:
-    st.title("기업 광고 신청페이지👋\n")
-st.text("왼쪽에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n\n")
+    st.title("하나뿐인 마케터 메인 페이지 입니다.👋\n")
+    st.text("왼쪽에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n\n")
 
 
 col1,empty2,col2 = st.columns([1, 0.03, 1])
 with col1:
-    image = Image.open('aifi.jpg')
-    st.image(image, caption='Soyeon Seungyeon Sunghyun')
-    
-with col2:
     st.subheader("하나금융 파워온 프로젝트를 하면서...")
+    st.title("즐거웠습니다.")
     st.markdown("[AiFi의 WiFi 블로그](https://blog.naver.com/annkwon11234)")
     st.markdown("[AiFi의 깃허브](https://github.com/AiFi-AiFinance)")
+    
+with col2:
+    image = Image.open('aifi.jpg')
+    st.image(image, caption='Soyeon Seungyeon Sunghyun')
 
 st.subheader("최종성과 발표 자료")
 tab1, tab2, tab3 = st.tabs(["표지", "목차", "기획 의도"])
