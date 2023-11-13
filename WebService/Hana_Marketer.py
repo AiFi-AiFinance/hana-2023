@@ -35,10 +35,19 @@ with col2:
     st.markdown("[AiFi의 깃허브](https://github.com/AiFi-AiFinance)")
 
 st.subheader("최종성과 발표 자료")
-with st.container():
+tab1, tab2, tab3 = st.tabs(["표지", "개발 동기", "서비스 소개"])
+
+with tab1:
+    st.header("표지")
     image1 = Image.open('001.png')
-    st.image(image1, width=0.7)
+    st.image(image1, width=200)
+
+with tab2:
+    st.header("개발 동기")
     image2 = Image.open('002.png')
-    st.image(image2, width=0.7)
+    st.image(image2, width=200) 
+
+with tab3:
+    st.header("서비스 소개")
     image3 = Image.open('003.png')
-    st.image(image3,width=0.7)
+    st.image(image3, width=200)
