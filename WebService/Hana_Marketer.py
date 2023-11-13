@@ -23,7 +23,7 @@ st.header("하나뿐인 마케터 메인페이지입니다.👋")
 st.subheader("\n좌측에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n")
 
 # 이미지 추가
-image = Image.open('aifi.jpg')
+image = Image.open('https://github.com/AiFi-AiFinance/hana-2023/WebService/aifi.jpg')
 st.image(image, caption='Soyeon Seungyeon Sunghyun')
 
 # 페이지 컬럼 분할(예: 부트스트랩 컬럼, 그리드)
