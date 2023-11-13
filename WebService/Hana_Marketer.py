@@ -21,7 +21,7 @@ with st.spinner(text="페이지 로딩중..."):
 
 # 페이지 헤더, 서브헤더 제목 설정
 st.header("하나뿐인 마케터 메인페이지입니다.👋")
-st.text("\n좌측에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n")
+st.subheader("\n좌측에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n")
 
 
 col1,empty2,col2 = st.columns([1, 0.03, 1])
@@ -32,12 +32,13 @@ with col1:
 with col2:
     st.subheader("하나금융 파워온 프로젝트를 하면서...")
     st.markdown("[AiFi의 WiFi 블로그](https://blog.naver.com/annkwon11234)")
-    st.markdown("![AiFi's github stats](https://github-readme-stats.vercel.app/api?username=anuraghazra&orgs=acme,evilcorp,fsociety)")
-    st.markdown("[![Soyeon's GitHub stats](https://github-readme-stats.vercel.app/api?username=annkwon1123)](https://github.com/anuraghazra/github-readme-stats)")
+    st.markdown("[AiFi의 깃허브](https://github.com/AiFi-AiFinance)")
 
-image1 = Image.open('001.png')
-st.image(image1)
-image2 = Image.open('002.png')
-st.image(image2)
-image3 = Image.open('003.png')
-st.image(image3)
+st.subheader("최종성과 발표 자료")
+with st.container():
+    image1 = Image.open('001.png')
+    st.image(image1, width=0.7)
+    image2 = Image.open('002.png')
+    st.image(image2, width=0.7)
+    image3 = Image.open('003.png')
+    st.image(image3,width=0.7)
