@@ -47,14 +47,13 @@ with col2 :
 #(4) 광고기간 (yy.mm.dd ~ yy.mm.dd)
 with col2 :
     start_date = st.date_input('광고 시작일을 선택해주세요.')
-with col2 :
     deadline = st.date_input('광고 종료일을 선택해주세요.')
     
-#(5) 광고 기간 계산
-start_date = parser.parse(str(start_date))
-deadline = parser.parse(str(deadline))
-dur = (deadline - start_date).days
-if (dur <= 0): st.error("광고기간 입력 오류입니다. 입력한 광고 시작일과 종료일을 다시 한 번 확인해주세요.")
+    #(5) 광고 기간 계산
+    start_date = parser.parse(str(start_date))
+    deadline = parser.parse(str(deadline))
+    dur = (deadline - start_date).days
+    if (dur <= 0): st.error("광고기간 입력 오류입니다. 입력한 광고 시작일과 종료일을 다시 한 번 확인해주세요.")
 
 # 데이터 베이스 파일에서 insert
 def get_enterprise():
@@ -71,47 +70,6 @@ def get_advertisement():
     return ad_code, store_code, title, contents, summary, image, start_date, deadline
   else:
     return -1
-
    
 if st.button("광고 신청"):
-    code = '''
-    import streamlit as st
-    import pandas터as pd
-    import numpy as np
-    from PIL import Image
-    from time import sleep
-
-
-    # 페이지 기본 설정
-  st.set_page_config(
-      page_icon="🐶",
-      page_title="빅공잼의 스트림릿 배포하기",
-      layout="wide",
-  )
-
-  # 로딩바 구현하기
-  with st.spinner(text="페이지 로딩중..."):
-      sleep(3)
-
-  # 페이지 헤더, 서브헤더 제목 설정
-  st.header("빅공잼 페이지에 오신걸 환영합니다👋")
-  st.subheader("스트림릿 기능 맛보기")
-
-  # 페이지 컬럼 분할(예: 부트스트랩 컬럼, 그리드)
-  cols = st.columns((1, 1, 2))
-  cols[0].metric("10/11", "15 °C", "2")
-  cols[0].metric("10/12", "17 °C", "2 °F")
-  cols[0].metric("10/13", "15 °C", "2")
-  cols[1].metric("10/14", "17 °C", "2 °F")
-  cols[1].metric("10/15", "14 °C", "-3 °F")
-  cols[1].metric("10/16", "13 °C", "-1 °F")
-
-  # 라인 그래프 데이터 생성(with. Pandas)
-  chart_data = pd.DataFrame(
-      np.random.randn(20, 3),
-      columns=['a', 'b', 'c'])
-
-  # 컬럼 나머지 부분에 라인차트 생성
-  cols[2].line_chart(chart_data)
-    '''
-    st.code(code, language='python')
+    st.success("광고 신청이 성공적으로 완료되었습니다.")
