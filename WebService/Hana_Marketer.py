@@ -23,7 +23,7 @@ with st.spinner(text="페이지 로딩중..."):
 col1,empty2,col2 = st.columns([1, 0.3, 8.7])
 
 with col1:
-    image_logo = Image.open('aifi_logo.jpg')
+    image_logo = Image.open('aifi_logo.png')
     st.image(image_logo)
     
 with col2:
