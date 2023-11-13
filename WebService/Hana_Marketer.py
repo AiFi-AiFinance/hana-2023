@@ -23,13 +23,13 @@ st.header("하나뿐인 마케터 메인페이지입니다.👋")
 st.subheader("\n좌측에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n")
 
 # 이미지 추가
-img_url = 'https://github.com/AiFi-AiFinance/hana-2023/blob/main/WebService/phoenix.png'
-st.image(img_url, caption='Soyeon Seungyeon Sunghyun')
+# img_url = 'https://github.com/AiFi-AiFinance/hana-2023/blob/main/WebService/phoenix.png'
+# st.image(img_url, caption='Soyeon Seungyeon Sunghyun')
 
-image = Image.open('images/001.png', 'rb')
-st.image(image, caption='ppt001')
+# image = Image.open('images/001.png', 'rb')
+# st.image(image, caption='ppt001')
 
-image = Image.open('images/001.png')
+image = Image.open('./images/001.png')
 st.image(image, caption='ppt001')
 
 # 페이지 컬럼 분할(예: 부트스트랩 컬럼, 그리드)
