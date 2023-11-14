@@ -42,6 +42,10 @@ st.set_page_config(
     layout="wide",
 )
 
+st.subheader("하나뿐인 마케터에서 분석한 내용입니다.")
+st.text("왼쪽에서 로그인 후 이용하실 수 있습니다.")
+st.markdown("***")
+        
 # 사이드바 로그인
 st.sidebar.header("로그인")
 st.sidebar.markdown("### 기업 정보를 입력해주세요.")
@@ -50,13 +54,20 @@ passwd = st.sidebar.text_input('비밀번호를 입력해주세요.', value="", 
 if st.sidebar.button("입력"):
     if get_pw(store_name) != passwd:
         # 로그인 성공
-        st.subheader("하나뿐인 마케터에서 분석한 내용입니다.")
-        # 로그인한 기업이 가지고 있는 광고
-        with st.expander("겨울 모자 광고"):
-            st.text(get_ad_type('1'))
-            ment = st.radio("gpt가 추천하는 멘트 세가지 중 하나를 골라주세요.", options=get_gpt_ments('1'))
-            input_option(ment)
-            
+        st.sidebar.success(f"{store_name} 환영합니다.") 
     else:
         # 로그인 실패
         st.sidebar.error("비밀번호를 확인해주세요.")
+        
+# 페이지
+
+with st.expander("겨울 모자 광고"):
+    st.text(get_ad_type('1'))
+    ment = st.radio("gpt가 추천하는 멘트 세가지 중 하나를 골라주세요.", options=get_gpt_ments('1'))
+    input_option(ment)
+    st.write(" 겨울 모자 광고의 주요 고객 층은 20대 여성입니다. MZ 세대가 겨울 패션 아이템을 선호합니다. ")
+    
+with st.expander("수정과 광고"):
+    st.text(get_ad_type('1'))
+    ment = st.radio("gpt가 추천하는 멘트 세가지 중 하나를 골라주세요.", options=get_gpt_ments('1'))
+    input_option(ment)
