@@ -54,7 +54,7 @@ with col2 :
 
 # 데이터 베이스 파일에서 insert
 def get_enterprise():
-  if store_code and store_name and email and phone and passwd:
+  if store_code and store_name and email and phone and passwd
     return store_code, store_name, email, phone, passwd
   else:
     return -1
