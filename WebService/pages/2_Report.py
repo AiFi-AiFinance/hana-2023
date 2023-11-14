@@ -52,7 +52,7 @@ st.sidebar.markdown("### 기업 정보를 입력해주세요.")
 store_name = st.sidebar.text_input('업체명을 입력해주세요.', value="")
 passwd = st.sidebar.text_input('비밀번호를 입력해주세요.', value="", type='password')
 if st.sidebar.button("입력"):
-    if get_pw(store_name) != passwd:
+    if passwd != None and get_pw(store_name) == passwd
         # 로그인 성공
         st.sidebar.success(f"{store_name} 환영합니다.") 
     else:
