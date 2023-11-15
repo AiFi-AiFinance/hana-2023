@@ -37,6 +37,9 @@ with tab1:
     st.write('광고 문구에 대해 걱정하실 필요 없습니다. 하나뿐인 마케터를 통해 생성형 AI를 이용한 광고 문구 추천 서비스를 받으실 수 있습니다. 또한 하나뿐인 마케터에서는 타겟층 정보 분석 및 광고 스타일 제안 등 클릭 건수를 기반으로 도출된 자료를 받으실 수 있습니다.')
 col1,empty2,col2,empty2,col3 = st.columns([1, 0.1, 1, 0.1, 1])
 with tab2:
+    with col1:
+        image_apply = Image.open('광고신청페이지_Edited.png')
+        st.image(image_apply)
    
 
 # 최종성과 발표 자료
