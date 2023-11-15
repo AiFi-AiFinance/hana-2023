@@ -32,7 +32,7 @@ with col2:
 st.markdown("***")
 tab_titles = ['서비스 소개', '서비스 이용 방법']
 tabs = st.tabs(tab_titles)
-with tabs[0]:
+with tabs['서비스 소개']:
     st.header('서비스 소개')
     st.write('고객 맞춤형 광고 서비스^^')
 
