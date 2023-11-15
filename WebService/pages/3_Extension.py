@@ -27,6 +27,3 @@ with col1:
     deadline = parser.parse(str(deadline))
     dur = (deadline - start_date).days
     if (dur <= 0): st.error("광고기간 입력 오류입니다. 입력한 광고 종료일과 연장일을 다시 한 번 확인해주세요.")
-
-    if st.button("광고 신청"):
-    st.success("광고 신청이 성공적으로 완료되었습니다.")
