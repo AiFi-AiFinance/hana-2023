@@ -43,6 +43,17 @@ with tab2, col1:
     st.image(image_apply)
     st.write('①좌측 상단 Apply 선택')
     st.write('②기업 정보 및 광고 정보 입력')
+with tab2, col2:
+    image_report = Image.open('광고문구추천_Edited.png')
+    st.image(image_report)
+    st.write('①좌측 상단 Report 선택')
+    st.write('②좌측 하단 로그인')
+    st.write('③추천 광고 문구 선택')
+with tab2, col3:
+    image_extention = Image.open('광고연장신청_Edited.png')
+    st.image(image_extention)
+    st.write('①좌측 상단 Extention 선택')
+    st.write('②광고 연장 기간 입력')
    
 
 # 최종성과 발표 자료
