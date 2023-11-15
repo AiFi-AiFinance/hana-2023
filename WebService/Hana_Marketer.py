@@ -32,7 +32,6 @@ with col2:
 st.markdown("***")
 tab_titles = ['서비스 소개', '서비스 이용 방법']
 tabs = st.tabs(tab_titles)
-st.write("이곳에 서비스 이용 방법과 서비스 설명에 대한 내용을 넣을 예정입니다..")
 
 
 # 최종성과 발표 자료
