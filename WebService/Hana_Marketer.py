@@ -30,6 +30,8 @@ with col2:
     st.title("하나뿐인 마케터 메인 페이지 입니다.👋\n")
     st.text("왼쪽에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n\n")
 st.markdown("***")
+with tab1:
+    st.subheader("표지")
 st.write("이곳에 서비스 이용 방법과 서비스 설명에 대한 내용을 넣을 예정입니다..")
 
 # 최종성과 발표 자료
