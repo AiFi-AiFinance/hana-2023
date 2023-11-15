@@ -33,6 +33,7 @@ def input_option(str_ment):
 import streamlit as st
 import pandas as pd
 import pydeck as pdk
+from PIL import Image
 from urllib.error import URLError
 
 # 페이지 기본 설정
@@ -54,6 +55,8 @@ passwd = st.sidebar.text_input('비밀번호를 입력해주세요.', value="", 
 if st.sidebar.button("입력"):
     if passwd != None and get_pw(store_name) == passwd:
         # 로그인 성공
+        image = Image.open('aifi.jpg')
+        st.sidebar.image(image, caption='Soyeon Seungyeon Sunghyun')
         st.sidebar.success(f"{store_name} 환영합니다.") 
     else:
         # 로그인 실패
