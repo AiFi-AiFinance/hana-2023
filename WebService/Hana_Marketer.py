@@ -39,7 +39,7 @@ with tab2:
 
 
 # 최종성과 발표 자료
-st.markdown("***")
+    st.markdown("***")
 st.subheader("최종성과 발표 자료")
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(["표지","발표 순서","기획 의도","서비스 명세","클라우드 SQL","전처리 전략","프론트엔드","인공지능"])
 
