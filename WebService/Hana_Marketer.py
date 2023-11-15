@@ -29,17 +29,14 @@ with col1:
 with col2:
     st.title("하나뿐인 마케터 메인 페이지 입니다.👋\n")
     st.text("왼쪽에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n\n")
+    
 st.markdown("***")
-col1,empty2,col2,empty2,col3 = st.columns([1, 0.1, 1, 0.1, 1])
 tab1, tab2 = st.tabs(['서비스 소개', '서비스 이용 방법'])
 with tab1:
     st.write('  고객 맞춤형 광고를 경험해 보세요. 불필요한 광고와 상품 추천은 고객에게 부정적인 인상을 줄 수 있습니다. 하나뿐인 마케터는 고객 데이터를 기반으로 개인에게 맞춤형 광고를 제공하여 위와 같은 부정적인 인상을 최소화합니다.')
     st.write('광고 문구에 대해 걱정하실 필요 없습니다. 하나뿐인 마케터를 통해 생성형 AI를 이용한 광고 문구 추천 서비스를 받으실 수 있습니다. 또한 하나뿐인 마케터에서는 타겟층 정보 분석 및 광고 스타일 제안 등 클릭 건수를 기반으로 도출된 자료를 받으실 수 있습니다.')
 with tab2:
-    with col1:
-        image_apply = Image.open('광고신청페이지_Edited.png')
-        st.image(image_apply)
-
+   
 
 # 최종성과 발표 자료
     st.markdown("***")
