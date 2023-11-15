@@ -30,11 +30,10 @@ with col2:
     st.title("하나뿐인 마케터 메인 페이지 입니다.👋\n")
     st.text("왼쪽에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n\n")
 st.markdown("***")
-tab_titles = ['서비스 소개', '서비스 이용 방법']
-tabs = st.tabs(tab_titles)
-with tabs['서비스 소개']:
+tab1, tab2 = st.tabs(['서비스 소개', '서비스 이용 방법'])
+with tab1:
     st.header('서비스 소개')
-    st.write('고객 맞춤형 광고 서비스^^')
+    st.write('고객 맞춤형 광고')
 
 
 # 최종성과 발표 자료
