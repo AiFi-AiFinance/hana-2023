@@ -2,6 +2,8 @@
 
 import builtins
 import streamlit as st
+# import streamlit_authenticator as stauth
+
 import pandas as pd
 import numpy as np
 from PIL import Image
