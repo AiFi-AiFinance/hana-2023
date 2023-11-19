@@ -5,7 +5,7 @@ import psycopg2
 # 데이터 베이스 연결하기
 class Databases():
     def __init__(self):
-        self.db = psycopg2.connect(host='localhost', dbname='postgres',user='postgres',password=' ',port=5432)
+        self.db = psycopg2.connect(host='34.42.241.68', database='hana-2023-database',user='postgres',password='1234',port=5432)
         self.cursor = self.db.cursor()
 
     def __del__(self):
@@ -20,7 +20,8 @@ class Databases():
     def commit(self):
         self.cursor.commit()
 
-# CRUD: Query Stence 
+from database import Databases
+
 class CRUD(Databases):
     def insertDB(self,schema,table,colum,data):
         sql = " INSERT INTO {schema}.{table}({colum}) VALUES ('{data}') ;".format(schema=schema,table=table,colum=colum,data=data)
@@ -57,11 +58,9 @@ class CRUD(Databases):
             self.db.commit()
         except Exception as e:
             print( "delete DB err", e)
-            
-# 적용
 if __name__ == "__main__":
     db = CRUD()
-    db.insertDB(schema='public',table='advisor',colum='s_id',data='유동적변경')
-    print(db.readDB(schema='public',table='advisor',colum='s_id'))
-    db.updateDB(schema='public',table='advisor',colum='s_id', value='와우',condition='유동적변경')
-    db.deleteDB(schema='public',table='advisor',condition ="s_id != 'd'")
+    db.insertDB(schema='myschema',table='table',colum='ID',data='유동적변경')
+    print(db.readDB(schema='myschema',table='table',colum='ID'))
+    db.updateDB(schema='myschema',table='table',colum='ID', value='와우',condition='유동적변경')
+    db.deleteDB(schema='myschema',table='table',condition ="id != 'd'")

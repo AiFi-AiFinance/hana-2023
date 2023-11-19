@@ -1,0 +1,14 @@
+{
+    "3b6a1ee3ded1e4b2c2f01e81dbe6d128": {
+        "page_script_hash": "3b6a1ee3ded1e4b2c2f01e81dbe6d128",
+        "page_name": "hana_marketer",
+        "icon": "",
+        "script_path": "/Users/soyeon/Git/hana-2023/frontend/hana_marketer.py"
+    },
+    "9bf69a4da9ed369621845b703e2affeb": {
+        "page_script_hash": "9bf69a4da9ed369621845b703e2affeb",
+        "page_name": "login",
+        "icon": "",
+        "script_path": "/Users/soyeon/Git/hana-2023/frontend/pages/1_login.py"
+    }
+}
