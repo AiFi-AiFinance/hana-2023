@@ -24,7 +24,7 @@ col1,empty2,col2 = st.columns([1, 0.1, 8.9])
 
 with col1:
     image_logo = Image.open('aifi_logo.png')
-    st.image(image_logo, width=200)
+    st.image(image_logo, width=100)
     
 with col2:
     st.title("하나뿐인 마케터 메인 페이지 입니다.👋\n")
