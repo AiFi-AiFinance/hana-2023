@@ -7,21 +7,30 @@ connection = psycopg2.connect(host="34.42.241.68", dbname="hana-2023-database", 
 cur = connection.cursor()
 
 store_code = 1
+cur_store = 0
 # 회원가입 시 company 테이블 insert
 def insert_company(store_name,email,passwd,phone):
+    global store_code
     cur.execute("INSERT INTO company (store_code,store_name,email,passwd,phone) VALUES (%s, %s, %s, %s, %s);",
         (store_code,store_name,email,passwd,phone)
         )
     connection.commit()
     store_code += 1
-    
+
+# 로그인한 기업의 store_code 반환 함수
+def get_cur_store():
+    global cur_store
+    return cur_store
+
 # 로그인 시 비밀번호 확인
 def login_company(email,passwd):
+    global cur_store
     try:
         cur.execute("SELECT * FROM company WHERE email=%s AND password=%s ;",
             (email,passwd)
             )
         result = cur.fetchall()
+        cur_store = int(result[0][0])
     except Exception as e:
         result = ("SELECT ERROR", e)
     return result
@@ -40,7 +49,8 @@ def check_hashes(passwd, hashed_text):
 # streamlit 광고하마 메인페이지 기본설정
 import streamlit as st
 st.set_page_config(page_icon="🦛", page_title="광고하마 메인페이지")
-st.title("사장님의 하나뿐인 마케터, 광고하마입니다.")
+st.subheader("사장님의 하나뿐인 마케터,")
+st.header("광고하마입니다. 🦛")
 
 # 현재 기업 로그인 여부
 if "logged_in" not in st.session_state:
