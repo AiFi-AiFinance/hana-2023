@@ -17,9 +17,32 @@ st.set_page_config(
     layout="wide"
 )
 
-# 로딩바 구현하기
+# 로딩바
 with st.spinner(text="페이지 로딩중..."):
     sleep(2)
+    
+# 사이드바 로그인
+# 데이터 베이스에서 store_name이 승연이네랑 일치하는 데이터의 passwd를 반환, 아니면 -1 
+# from Database import get_pw
+def get_pw(store_name):
+    if store_name == '승연이네':
+        return '1234'
+    else:
+        return -1
+
+st.sidebar.header("로그인")
+st.sidebar.markdown("### 기업 정보를 입력해주세요.")
+store_name = st.sidebar.text_input('업체명을 입력해주세요.', value="")
+passwd = st.sidebar.text_input('비밀번호를 입력해주세요.', value="", type='password')
+if st.sidebar.button("입력"):
+    if passwd != None and get_pw(store_name) == passwd:
+        # 로그인 성공
+        image = Image.open('aifi.jpg')
+        st.sidebar.image(image, caption='Soyeon Seungyeon Sunghyun')
+        st.sidebar.success(f"{store_name} 환영합니다.") 
+    else:
+        # 로그인 실패
+        st.sidebar.error("비밀번호를 확인해주세요.")
 
 # 페이지 헤더, 서브헤더 제목 설정
 col1,empty2,col2 = st.columns([1, 0.1, 8.9])
