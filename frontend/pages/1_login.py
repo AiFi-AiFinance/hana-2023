@@ -1,17 +1,16 @@
 import hashlib
 import json
-import sqlite3
+import psycopg2
 from pathlib import Path
-
 import pandas as pd
 
-# Setup
+# 스트림릿을 사용하기 위한 설정
 import streamlit as st
 from streamlit.source_util import _on_pages_changed, get_pages
 from streamlit_extras.switch_page_button import switch_page
 
 DEFAULT_PAGE = "1_login.py"
-SECOND_PAGE_NAME = "Home"
+SECOND_PAGE_NAME = "hana_marketer.py"
 
 
 def get_all_pages():
@@ -36,7 +35,7 @@ def clear_all_but_first_page():
 
     get_all_pages()
 
-    # Remove all but the first page
+    # 기업 로그인 페이지를 제외한 페이지 숨기기
     key, val = list(current_pages.items())[0]
     current_pages.clear()
     current_pages[key] = val
@@ -49,7 +48,7 @@ def show_all_pages():
 
     saved_pages = get_all_pages()
 
-    # Replace all the missing pages
+    # 모든 페이지 보이게 하기
     for key in saved_pages:
         if key not in current_pages:
             current_pages[key] = saved_pages[key]
@@ -70,122 +69,161 @@ def hide_page(name: str):
 clear_all_but_first_page()
 
 
-# Convert Pass into hash format
+# 비밀번호를 해시 형태로 바꾸기
 def make_hashes(password):
     return hashlib.sha256(str.encode(password)).hexdigest()
 
-
-# Check password matches during login
+# 비밀번호가 맞는지 확인하기
 def check_hashes(password, hashed_text):
     if make_hashes(password) == hashed_text:
         return hashed_text
     return False
 
+# DB 관리 클래스
+class Databases():
+    # 구글 클라우드에서 호스팅 하는 postgreSQL 연결
+    def __init__(self):
+        self.db = psycopg2.connect(host='34.42.241.68', dbname='hana-2023-database',user='postgres',password='1234',port=5432)
+        self.cursor = self.db.cursor()
 
-# DB Management
+    def __del__(self):
+        self.db.close()
+        self.cursor.close()
+        
+    # SQL 명령어를 처리하기 위한 execute 함수
+    def execute(self,query,args={}):
+        self.cursor.execute(query,args)
+        row = self.cursor.fetchall()
+        return row
+    
+    # transaction 변화를 commit 하는 함수
+    def commit(self):
+        self.cursor.commit()
 
-conn = sqlite3.connect("user_data.db")
-c = conn.cursor()
+# 기업정보 로그인를 위해 데이터를 SQL문으로 바꾸는 클래스
+class CRUD_company(Databases):
+    store_code = 1
+    
+    # 기업 정보 입력
+    def insert_company(self,store_name,email,passwd,phone):
+        sql = " INSERT INTO company(store_code,store_name,email,password,phone) VALUES (?,?,?,?,?) "
+        try:
+            self.cursor.execute(sql,(self.store_code,store_name,email,passwd,phone))
+            self.db.commit()
+            self.store_code += 1
+        except Exception as e :
+            print(" insert DB err ",e) 
+    
+    # 기업 로그인
+    def login_company(self,email,passwd):
+        sql = " SELECT * FROM company WHERE email =? AND password = ? "
+        try:
+            self.cursor.execute(sql,(email,passwd))
+            result = self.cursor.fetchall()
+        except Exception as e :
+            result = (" read DB err",e)
+        
+        return result
+    
+    # 기업 테이블 전체 읽기
+    def view_table(self):
+        sql = " SELECT * FROM company "
+        try:
+            self.cursor.execute(sql)
+            result = self.cursor.fetchall()
+        except Exception as e :
+            result = (" read DB err",e)
+        
+        return result
 
+    def updateDB(self,schema,table,colum,value,condition):
+        sql = " UPDATE {schema}.{table} SET {colum}='{value}' WHERE {colum}='{condition}' ".format(schema=schema
+        , table=table , colum=colum ,value=value,condition=condition )
+        try :
+            self.cursor.execute(sql)
+            self.db.commit()
+        except Exception as e :
+            print(" update DB err",e)
 
-# DB Functions for create table
-def create_usertable():
-    c.execute(
-        "CREATE TABLE IF NOT EXISTS userstable(username TEXT,email TEX, password TEXT)"
-    )
-
-
-# Insert the data into table
-def add_userdata(username, email, password):
-    c.execute(
-        "INSERT INTO userstable(username,email,password) VALUES (?,?,?)",
-        (username, email, password),
-    )
-    conn.commit()
-
-
-# Password and email fetch
-def login_user(email, password):
-    c.execute(
-        "SELECT * FROM userstable WHERE email =? AND password = ?", (email, password)
-    )
-    data = c.fetchall()
-    return data
-
-
-def view_all_users():
-    c.execute("SELECT * FROM userstable")
-    data = c.fetchall()
-    return data
-
+    def deleteDB(self,schema,table,condition):
+        sql = " delete from {schema}.{table} where {condition} ; ".format(schema=schema,table=table,
+        condition=condition)
+        try :
+            self.cursor.execute(sql)
+            self.db.commit()
+        except Exception as e:
+            print( "delete DB err", e)
+            
 
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
 
 
-# Main function
+# 메인 스트림릿
 def main():
-    # """Login page"""
-    st.title("welcome! ")
-    menu = ["Login", "SignUp"]
+    # 로그인 페이지
+    st.title("환영합니다! 광고하마 입니다. ")
+    menu = ["로그인", "회원가입"]
     choice = st.selectbox(
-        "Select Login or SignUp from dropdown box ▾",
+        "아래에서 로그인 또는 회원가입 버튼을 입력해주세요. ▾",
         menu,
     )
     st.markdown(
-        "<h10 style='text-align: left; color: #ffffff;'> If you do not have an account, create an accouunt by select SignUp option from above dropdown box.</h10>",
+        "<h10 style='text-align: left; color: #ffffff;'> 광고하마에 처음 오셨나요? 회원가입 버튼을 눌러주세요.</h10>",
         unsafe_allow_html=True,
     )
+    
+    db = CRUD_company()
+    
     if choice == "":
-        st.subheader("Login")
-    elif choice == "Login":
+        st.subheader("로그인")
+    elif choice == "로그인":
         st.write("-------")
-        st.subheader("Log in to the App")
+        st.subheader("로그인이 필요합니다. ")
 
-        email = st.text_input("User Name", placeholder="email")
-
-        password = st.text_input("Password", type="password")
-
-        if st.checkbox("Login"):
-            # if password == '12345':
+        email = st.text_input("기업명", placeholder="email")
+        passwd = st.text_input("비밀번호", type="password")
+        
+        if st.checkbox("로그인"):
+            # if password == '1234':
             # Hash password creation and store in a table
-            create_usertable()
-            hashed_pswd = make_hashes(password)
-
-            result = login_user(email, check_hashes(password, hashed_pswd))
+            hashed_pswd = make_hashes(passwd)
+            
+            result = db.login_company(email, check_hashes(passwd, hashed_pswd))
             if result:
                 st.session_state["logged_in"] = True
-
-                st.success("Logged In as {}".format(email))
+                st.success("로그인 되었습니다. {}".format(email))
 
                 if st.success:
-                    st.subheader("User Profiles")
-                    user_result = view_all_users()
+                    st.subheader("기업 정보 ")
+                    user_result = db.view_table()
                     clean_db = pd.DataFrame(
-                        user_result, columns=["Username", "Email", "Password"]
+                        user_result, columns=["store_code","store_name","email","passwd","phone"]
                     )
                     st.dataframe(clean_db)
             else:
-                st.warning("Incorrect Username/Password")
-    elif choice == "SignUp":
+                st.warning("잘못된 접근입니다. 로그인 정보를 확인해 주세요. ")
+    elif choice == "회원가입":
         st.write("-----")
-        st.subheader("Create New Account")
-        new_user = st.text_input("Username", placeholder="name")
-        new_user_email = st.text_input("Email id", placeholder="email")
-        new_password = st.text_input("Password", type="password")
+        st.subheader("기업 정보를 입력해주세요. ")
+        new_company = st.text_input("기업명", placeholder="name")
+        new_email = st.text_input("이메일 id", placeholder="email")
+        new_passwd = st.text_input("비밀번호", type="password")
+        new_phone = st.text_input("연락처", placeholde="phone number")
 
-        if st.button("Signup"):
-            if new_user == "":  # if user name empty then show the warnings
+        if st.button("회원가입"):
+            if new_company == "":  # if user name empty then show the warnings
                 st.warning("Inavlid user name")
-            elif new_user_email == "":  # if email empty then show the warnings
+            elif new_email == "":  # if email empty then show the warnings
                 st.warning("Invalid email id")
-            elif new_password == "":  # if password empty then show the warnings
+            elif new_passwd == "":  # if password empty then show the warnings
                 st.warning("Invalid password")
+            elif new_phone == "":  # if password empty then show the warnings
+                st.warning("Invalid phone number")
             else:
-                create_usertable()
-                add_userdata(new_user, new_user_email, make_hashes(new_password))
-                st.success("You have successfully created a valid Account")
-                st.info("Go up and Login to you account")
+                db.insert_company(new_company, new_email, new_passwd, new_phone, make_hashes(new_passwd))
+                st.success("회원가입 완료")
+                st.info("위에서 로그인 하세요. ")
 
     if st.session_state["logged_in"]:
         show_all_pages()
