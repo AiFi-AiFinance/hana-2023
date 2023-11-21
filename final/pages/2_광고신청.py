@@ -4,27 +4,39 @@
 # store_code 불러오기
 import sys
 sys.path.append("..")
-from frontend.광고하마 import get_cur_store
-store_code = get_cur_store()
+from final.광고하마 import get_cur_store
+cur_store = get_cur_store()
 
 # PostgreSQL 데이터 베이스 연동
 import psycopg2
 connection = psycopg2.connect(host="34.42.241.68", dbname="hana-2023-database", user="postgres", password="1234", port=5432)
 cur = connection.cursor()
 
-ad_code = 1
+# ad_code를 얻는 함수
+def get_ad_code():
+    try:
+        cur.execute("SELECT COUNT(*) FROM advertise;")
+        result = cur.fetchone()
+        if result:
+            return result[0]  # Return the count value
+        else:
+            return 0  # Return 0 if no count value obtained
+    except Exception as e:
+        print("Error fetching ad count:", e)
+        return None 
+    
 # 광고 신청시 advertisement 테이블 insert
 def insert_ad(title,contents,category,keyword,image,start_date,deadline):
-    global ad_code, store_code
+    ad_code = get_ad_code()
+    global cur_store
     cur.execute("INSERT INTO advertisement (ad_code,store_code,title,contents,category,keyword,image,start_date,deadline) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);",
-        (ad_code,store_code,title,contents,category,keyword,image,start_date,deadline)
+        (ad_code,cur_store,title,contents,category,keyword,image,start_date,deadline)
         )
     connection.commit()
-    ad_code += 1
 
 # streamlit 광고하마 광고신청 페이지 기본설정
 import streamlit as st
-st.set_page_config(page_icon="🦛", page_title="광고하마 메인페이지", layout="wide")
+st.set_page_config(page_icon="🦛", page_title="광고하마 신청페이지", layout="wide")
 st.subheader("사장님의 하나뿐인 마케터,")
 st.header("광고하마입니다. 🦛")
     
@@ -62,7 +74,3 @@ if st.button("광고신청",type="primary"):
     else:
         insert_ad(title,contents,category,keyword,image,start_date,deadline)
         st.success("광고신청 완료")
-
-# 데이터 베이스 종료
-cur.close()
-connection.close()
