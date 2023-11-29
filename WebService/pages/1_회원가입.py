@@ -1,7 +1,13 @@
+# 회원 가
+
+# 페이지 기본 설정
 import streamlit as st
-st.set_page_config(page_title="광고하마 회원가입페이지",page_icon="🦛",layout="centered")
-st.subheader("사장님의 하나뿐인 마케터,")
-st.header("광고하마입니다. 🦛")
+# from st_pages import hide_pages
+st.set_page_config(page_title="광고하마 회원가입",page_icon="🦛",layout="centered")
+# hide_pages(["회원가입","광고연장"])
+st.subheader("광고하마 회원가입 페이지 입니다.")
+st.text("왼쪽에서 로그인 하실 수 있습니다.")
+st.markdown("***")
 
 # 현재 기업 로그인 여부
 if "logged_in" not in st.session_state:
@@ -15,7 +21,8 @@ if st.session_state["logged_in"] == False:
 # 로그인 버튼 입력 여부
 if "button_login" not in st.session_state:
     st.session_state["button_login"] = False
-    
+
+# 사이드바
 with st.sidebar:
     # 기업 로그인
     st.subheader("로그인")

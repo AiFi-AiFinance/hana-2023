@@ -1,22 +1,23 @@
 # 대시보드: 로그인한 기업의 광고 리스트 보여주기
 
+# 페이지 기본 설정
 import streamlit as st
+from st_pages import hide_pages
+st.set_page_config(page_title="광고하마 대시보드",page_icon="🦛",layout="wide")
+hide_pages(["회원가입","광고연장"])
+st.subheader("하나뿐인 마케터에 신청한 광고입니다.")
+st.text("현재 로그인 된 매장은 아이러브커피입니다.")
+st.markdown("***")
+
+# 사이드바
+with st.sidebar:
+  st.text("아이러브커피")
+  
+# 페이지 내용 
 import pandas as pd
 import pydeck as pdk
 from PIL import Image
 from urllib.error import URLError
-
-# 페이지 기본 설정
-st.set_page_config(
-    page_icon="⭐️",
-    page_title="하나뿐인 마케터",
-    layout="wide",
-)
-
-st.subheader("하나뿐인 마케터에서 분석한 내용입니다.")
-st.text("왼쪽에서 로그인 후 이용하실 수 있습니다.")
-st.markdown("***")
-
 import numpy as np
 chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
 
