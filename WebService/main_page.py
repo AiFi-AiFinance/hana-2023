@@ -42,7 +42,7 @@ st.markdown("***")
 from st_pages import Page, hide_pages, show_pages
 show_pages(
     [
-        Page("WebService/광고하마.py", "광고하마", "🦛"),
+        Page("WebService/main_page.py", "광고하마", "🦛"),
         Page("WebService/pages/1_회원가입.py", "회원가입", "🖐️"),
         Page("WebService/pages/2_대시보드.py", "대시보드", "📋"),
         Page("WebService/pages/3_광고신청.py", "광고신청", "📄"),
