@@ -3,6 +3,7 @@
 # 페이지 기본 설정
 import streamlit as st
 from st_pages import hide_pages
+from PIL import Image
 st.set_page_config(page_title="광고하마 광고 신청",page_icon="🦛",layout="wide")
 hide_pages(["회원가입","광고연장"])
 st.subheader("광고하마에게 광고 신청하기!")
@@ -12,6 +13,8 @@ st.markdown("***")
 # 사이드바
 with st.sidebar:
   st.text("아이러브커피")
+  image009 = Image.open('009.png')
+  st.image(image009)
 
 # 데이터 베이스 순서대로 store_code 와 ad_code 불러오기
 # from Database import get_store_code, get_ad_code
