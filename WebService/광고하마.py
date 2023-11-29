@@ -33,8 +33,8 @@ with col1:
     st.image(image_logo, width=100)
     
 with col2:
-    st.header("사장님의 하나뿐인 마케터, 광고하마입니다. 🦛")
-    st.subheader("왼쪽에서 광고 신청 및 로그인 후 이용하실 수 있습니다.\n\n")
+    st.markdown(f'<h1 style="color:#008485;font-size:54px;">{"하나뿐인 마케터, 광고하마"}</h1>', unsafe_allow_html=True)
+    st.text("왼쪽에서 로그인 후 광고하마를 이용하실 수 있습니다.\n\n")
     
 st.markdown("***")
 
@@ -72,20 +72,20 @@ with st.sidebar:
     if st.button("로그인", type="primary",key=8):
         st.session_state["button_login"] = True
 
-# 로그인 정보 확인  
-if st.session_state["button_login"] == True:
-    if email == "":
-        st.warning("잘못된 이메일(id)입니다.")
-    elif passwd == "":
-        st.warning("잘못된 비밀번호입니다.")
-    else:
-        store_code, store_name = login_company(email, passwd)  # login_company 함수 호출
-        if store_code and store_name:
-            st.session_state["logged_in"] = True
-            log.set_cur_store(store_code)
-            st.success(f"로그인 성공: {store_name} 사장님 안녕하세요!")  # store_name 출력
+    # 로그인 정보 확인  
+    if st.session_state["button_login"] == True:
+        if email == "":
+            st.warning("잘못된 이메일(id)입니다.")
+        elif passwd == "":
+            st.warning("잘못된 비밀번호입니다.")
         else:
-            st.warning("잘못된 로그인 정보입니다.")
+            store_code, store_name = login_company(email, passwd)  # login_company 함수 호출
+            if store_code and store_name:
+                st.session_state["logged_in"] = True
+                log.set_cur_store(store_code)
+                st.success(f"로그인 성공: {store_name} 사장님 안녕하세요!")  # store_name 출력
+            else:
+                st.warning("잘못된 로그인 정보입니다.")
             
 # 로그인시 서비스 페이지 노출 
 if st.session_state["logged_in"] == True:
