@@ -2,10 +2,10 @@
 
 # 페이지 기본 설정
 import streamlit as st
-from st_pages import hide_pages
+# from st_pages import hide_pages
 from PIL import Image
 st.set_page_config(page_title="광고하마 추천멘트",page_icon="🦛",layout="centered")
-hide_pages(["회원가입","광고연장"])
+# hide_pages(["회원가입","광고연장"])
 st.subheader("광고하마 친구들이 제안하는 광고 추천 멘트입니다.")
 st.text("현재 광고는 아이러브커피 매장의 수정과입니다.")
 st.markdown("***")

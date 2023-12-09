@@ -2,9 +2,7 @@
 
 # 페이지 기본 설정
 import streamlit as st
-# from st_pages import hide_pages
 st.set_page_config(page_title="광고하마 회원가입",page_icon="🦛",layout="centered")
-# hide_pages(["회원가입","광고연장"])
 st.subheader("광고하마 회원가입 페이지 입니다.")
 st.text("왼쪽에서 로그인 하실 수 있습니다.")
 st.markdown("***")
@@ -14,9 +12,9 @@ if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
     
 # 페이지관리
-from st_pages import hide_pages
-if st.session_state["logged_in"] == False:
-    hide_pages( ["대시보드","광고신청","추천멘트","고객분석","광고연장"])
+# from st_pages import hide_pages
+# if st.session_state["logged_in"] == False:
+#     hide_pages( ["대시보드","광고신청","추천멘트","고객분석","광고연장"])
     
 # 로그인 버튼 입력 여부
 if "button_login" not in st.session_state:
@@ -47,8 +45,8 @@ with st.sidebar:
                 st.warning("잘못된 로그인 정보입니다.")
             
 # 로그인시 서비스 페이지 노출 
-if st.session_state["logged_in"] == True:
-    hide_pages(["회원가입","광고연장"])
+# if st.session_state["logged_in"] == True:
+#     hide_pages(["회원가입","광고연장"])
     
 st.write("-----")
 st.subheader("회원가입")

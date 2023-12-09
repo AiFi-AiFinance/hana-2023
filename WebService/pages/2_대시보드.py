@@ -2,9 +2,9 @@
 
 # 페이지 기본 설정
 import streamlit as st
-from st_pages import hide_pages
+# from st_pages import hide_pages
 st.set_page_config(page_title="광고하마 대시보드",page_icon="🦛",layout="wide")
-hide_pages(["회원가입","광고연장"])
+# hide_pages(["회원가입","광고연장"])
 st.subheader("하나뿐인 마케터에 신청한 광고입니다.")
 st.text("현재 로그인 된 매장은 아이러브커피입니다.")
 st.markdown("***")

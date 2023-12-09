@@ -39,26 +39,26 @@ with col2:
 st.markdown("***")
 
 # 페이지 관리
-from st_pages import Page, hide_pages, show_pages
-show_pages(
-    [
-        Page("WebService/main_page.py", "광고하마", "🦛"),
-        Page("WebService/pages/1_회원가입.py", "회원가입", "🖐️"),
-        Page("WebService/pages/2_대시보드.py", "대시보드", "📋"),
-        Page("WebService/pages/3_광고신청.py", "광고신청", "📄"),
-        Page("WebService/pages/4_추천멘트.py", "추천멘트", "🤖"), 
-        Page("WebService/pages/5_고객분석.py", "고객분석", "💁🏼‍♀️")
-    ]
-) 
+# from st_pages import Page, hide_pages, show_pages
+# show_pages(
+#     [
+#         Page("WebService/main_page.py", "광고하마", "🦛"),
+#         Page("WebService/pages/1_회원가입.py", "회원가입", "🖐️"),
+#         Page("WebService/pages/2_대시보드.py", "대시보드", "📋"),
+#         Page("WebService/pages/3_광고신청.py", "광고신청", "📄"),
+#         Page("WebService/pages/4_추천멘트.py", "추천멘트", "🤖"), 
+#         Page("WebService/pages/5_고객분석.py", "고객분석", "💁🏼‍♀️")
+#     ]
+# ) 
 
 # 현재 기업 로그인 여부
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
     
 # 페이지관리
-from st_pages import hide_pages
-if st.session_state["logged_in"] == False:
-    hide_pages( ["대시보드","광고신청","추천멘트","고객분석","광고연장"])
+# from st_pages import hide_pages
+# if st.session_state["logged_in"] == False:
+#     hide_pages( ["대시보드","광고신청","추천멘트","고객분석","광고연장"])
     
 # 로그인 버튼 입력 여부
 if "button_login" not in st.session_state:
@@ -88,8 +88,8 @@ with st.sidebar:
                 st.warning("잘못된 로그인 정보입니다.")
             
 # 로그인시 서비스 페이지 노출 
-if st.session_state["logged_in"] == True:
-    hide_pages(["회원가입","광고연장"])
+# if st.session_state["logged_in"] == True:
+#     hide_pages(["회원가입","광고연장"])
 
 # 상세페이지
 image001 = Image.open('001.png')
