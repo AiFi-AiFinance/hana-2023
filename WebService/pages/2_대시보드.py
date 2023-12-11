@@ -20,6 +20,7 @@ from PIL import Image
 from urllib.error import URLError
 import numpy as np
 chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+st.line_chart(chart_data)
 
         
 # 페이지
