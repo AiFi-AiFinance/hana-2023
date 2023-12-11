@@ -15,12 +15,14 @@ with st.sidebar:
   
 # 페이지 내용 
 import pandas as pd
-import pydeck as pdk
-from PIL import Image
-from urllib.error import URLError
 import numpy as np
-chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["광고하마", "광곰", "광아지"])
-st.line_chart(chart_data)
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 계절성 확인을 위해 년도, 월 컬럼 생성
+st.df['year'] = st.df.index.year
+st.df['month'] = st.df.index.month
+
 
         
 # 페이지
