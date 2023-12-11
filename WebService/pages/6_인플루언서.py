@@ -23,22 +23,25 @@ ments = [
     "귀여움 가득, 겨울을 따뜻하게 감싸는 곰돌이 모자",
     "귀여운 디자인으로 따뜻함을 더한 곰돌이 모자"
     ]
-
-with st.chat_message("user",avatar="🍀"):
+col1,col2,col3 = st.columns(3)
+with col1:
+    st.chat_message("user",avatar="🍀")
     st.write("[ 블로거 소여닐기 ]")
     st.write("이웃 수 19천 명, 일간 방문자 수 256 명, 전체 글 125 개")
     st.write(ments[0])
     if st.button("선택"):
         st.success("해당 인플루언서가 선택 되었습니다.")
     
-with st.chat_message("user",avatar="🥕"):
+with col2:
+    st.chat_message("user",avatar="🥕")
     st.write("[ 당근러 수박대박 ]")
     st.write("누적 이용자 수 13천 명, 월 평균 이용자 수 600명, 월 평균 조회수 3.4천 회")
     st.write(ments[1])
     if st.button("선택", key=2):
         st.success("해당 인플루언서가 선택 되었습니다.") 
 
-with st.chat_message("user",avatar="🍽️"):
+with col3:
+    st.chat_message("user",avatar="🍽️")
     st.write("[ 유튜버 1분요리 ]")
     st.write("구독자 수 12만 명, 평균 조회수 7.8천 회, 전체 동영상 37 개") 
     st.write(ments[2])
