@@ -26,7 +26,7 @@ import seaborn as sns
 chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["광고하마", "광곰", "광아지"])
 st.line_chart(chart_data)
 plt.figure(figsize=(10,5))
-sns.lineplot(data=pd.DataFrame, x='날짜', y = '클릭 수')
+sns.lineplot(data=DataFrame, x='날짜', y = '클릭 수')
 
         
 # 페이지
