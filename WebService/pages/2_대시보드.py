@@ -14,20 +14,13 @@ with st.sidebar:
   st.text("아이러브커피")
   
 # 페이지 내용 
-import streamlit as st
-from datetime import datetime, timedelta
- 
-# 일주일 범위의 datetime slider 생성
-start_date = datetime(2023, 11, 1)
-end_date = start_date + timedelta(weeks=1)
- 
-selected_date = st.slider(
-    "날짜 범위 선택",
-    min_value=start_date,
-    max_value=end_date,
-    value=(start_date, end_date),
-    step=timedelta(days=1),
-)
+import pandas as pd
+import pydeck as pdk
+from PIL import Image
+from urllib.error import URLError
+import numpy as np
+chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+st.line_chart(chart_data)
 
         
 # 페이지
