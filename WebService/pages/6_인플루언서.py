@@ -6,7 +6,7 @@ import streamlit as st
 from PIL import Image
 st.set_page_config(page_title="광고하마 인플루언서 제안",page_icon="🦛",layout="centered")
 # hide_pages(["회원가입","광고연장"])
-st.subheader("광고하마 친구들이 제안하는 인플루언서입니다.")
+st.subheader("광고하마에서 제안하는 인플루언서입니다.")
 st.text("현재 광고는 아이러브커피 매장의 수정과입니다.")
 st.markdown("***")
 
@@ -33,7 +33,7 @@ with st.chat_message("user",avatar="🍀"):
     
 with st.chat_message("user",avatar="🥕"):
     st.write("[ 당근러 수박대박 ]")
-    st.write("최근 거래 2 건, 매너 온도 30도, 전체 거래 19 건")
+    st.write("누적 이용자 수 13천 명, 월 평균 이용자 수 600명, 월 평균 조회수 3.4천 회")
     st.write(ments[1])
     if st.button("선택", key=2):
         st.success("해당 인플루언서가 선택 되었습니다.") 
