@@ -33,8 +33,8 @@ with col1:
              st.success("해당 인플루언서가 선택 되었습니다.")
     
 with col2:
-    st.chat_message("user",avatar="🥕")
-    st.write("[ 당근러 수박대박 ]")
+    with st.chat_message("user",avatar="🥕"):
+         st.write("[ 당근러 수박대박 ]")
     st.write("누적 이용자 수 13천 명, 월 평균 이용자 수 600명, 월 평균 조회수 3.4천 회")
     st.write(ments[1])
     if st.button("선택", key=2):
