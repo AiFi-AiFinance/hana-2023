@@ -19,6 +19,5 @@ with st.sidebar:
 import pandas as pd
 import numpy as np
 
-chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
-
-st.bar_chart(chart_data)
+fig = plotly.pie(df, names='lang', values='Sum', title='각 언어별 파이차트')
+st.plotly_chart(fig)
