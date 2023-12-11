@@ -27,19 +27,21 @@ col1,col2,col3 = st.columns(3)
 with col1:
      with st.chat_message("user",avatar="🍀"):
           st.write("[ 블로거 소여닐기 ]")
-          st.write("이웃 수 19천 명, 일간 방문자 수 256 명, 전체 글 125 개")
           st.write(ments[0])
-          if st.button("선택"):
-             st.success("해당 인플루언서가 선택 되었습니다.")
+     st.write("      이웃 수: 19천 명")
+     st.write("일간 방문자 수: 256 명")
+     st.write("      전체 글: 125 개") 
+     if st.button("선택"):
+         st.success("해당 인플루언서가 선택 되었습니다.")
     
 with col2:
-    with st.chat_message("user",avatar="🥕"):
+     with st.chat_message("user",avatar="🥕"):
          st.write("[ 당근러 수박대박 ]")
          st.write(ments[1])
-    st.write("누적 이용자 수 13천 명월")
-    st.write("월 평균 이용자 수 600명")
-    st.write("월 평균 조회수 3.4천 회")
-    if st.button("선택", key=2):
+     st.write("   누적 이용자 수: 13천 명")
+     st.write("월 평균 이용자 수: 600명")
+     st.write("   월 평균 조회수: 3.4천 회")
+     if st.button("선택", key=2):
         st.success("해당 인플루언서가 선택 되었습니다.") 
 
 with col3:
