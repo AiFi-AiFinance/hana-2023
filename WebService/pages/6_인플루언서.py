@@ -25,12 +25,12 @@ ments = [
     ]
 col1,col2,col3 = st.columns(3)
 with col1:
-    st.chat_message("user",avatar="🍀")
-    st.write("[ 블로거 소여닐기 ]")
-    st.write("이웃 수 19천 명, 일간 방문자 수 256 명, 전체 글 125 개")
-    st.write(ments[0])
-    if st.button("선택"):
-        st.success("해당 인플루언서가 선택 되었습니다.")
+     with st.chat_message("user",avatar="🍀"):
+          st.write("[ 블로거 소여닐기 ]")
+          st.write("이웃 수 19천 명, 일간 방문자 수 256 명, 전체 글 125 개")
+          st.write(ments[0])
+          if st.button("선택"):
+             st.success("해당 인플루언서가 선택 되었습니다.")
     
 with col2:
     st.chat_message("user",avatar="🥕")
