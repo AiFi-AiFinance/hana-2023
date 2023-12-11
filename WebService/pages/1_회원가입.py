@@ -24,7 +24,7 @@ if "button_login" not in st.session_state:
 with st.sidebar:
     # 기업 로그인
     st.subheader("로그인")
-    email = st.text_input("이메일(id)",placeholder="이메일(id)을 입력해주세요.",key=5)
+    email = st.text_input("이메일(ID)",placeholder="이메일(ID)을 입력해주세요.",key=5)
     passwd = st.text_input("비밀번호",placeholder="비밀번호를 입력해주세요.", type="password",key=6)
     if st.button("로그인", type="primary",key=8):
         st.session_state["button_login"] = True
