@@ -19,7 +19,7 @@ import pydeck as pdk
 from PIL import Image
 from urllib.error import URLError
 import numpy as np
-chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["광고하마", "광곰", "광아지"])
 st.line_chart(chart_data)
 
         
