@@ -42,8 +42,6 @@ with kpi3:
 st.markdown("<hr/>",unsafe_allow_html=True)
 
 
-st.markdown("## KPI Second Row")
-
 # kpi 1 
 
 kpi01, kpi02, kpi03, kpi04, kpi05 = st.columns(5)
@@ -75,22 +73,9 @@ with kpi05:
 
 st.markdown("<hr/>",unsafe_allow_html=True)
 
-st.markdown("## Chart Layout")
-
-chart1, chart2 = st.columns(2)
-
-with chart1:
-    chart_data = pd.DataFrame(np.random.randn(20, 3),columns=['a', 'b', 'c'])
-    st.line_chart(chart_data)
-
-with chart2:
-    chart_data = pd.DataFrame(np.random.randn(2000, 3),columns=['a', 'b', 'c'])
-    st.line_chart(chart_data)
 
 chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["광고하마", "광곰", "광아지"])
 st.line_chart(chart_data)
-
-
         
 # 페이지
 col1,col2,col3 = st.columns(3)
