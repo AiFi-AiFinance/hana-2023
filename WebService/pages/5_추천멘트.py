@@ -13,8 +13,8 @@ st.markdown("***")
 # 사이드바
 with st.sidebar:
     st.text("아이러브커피")
-    image006 = Image.open('006.png')
-    st.image(image006)
+    image004 = Image.open('004.png')
+    st.image(image004)
     
 # 페이지 내용  
 # 로그인한 기업이 가진 광고의 추천멘트

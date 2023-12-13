@@ -5,7 +5,6 @@ import streamlit as st
 st.set_page_config(page_title="광고하마 회원가입",page_icon="🦛",layout="centered")
 st.subheader("광고하마 회원가입 페이지 입니다.")
 st.text("왼쪽에서 로그인 하실 수 있습니다.")
-st.markdown("***")
 
 # 현재 기업 로그인 여부
 if "logged_in" not in st.session_state:

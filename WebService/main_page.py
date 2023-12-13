@@ -102,6 +102,8 @@ image004 = Image.open('004.png')
 st.image(image004)
 image005 = Image.open('005.png')
 st.image(image005)
+image006 = Image.open('006.png')
+st.image(image006)
 image_aifi = Image.open('aifi.jpg')
 st.image(image_aifi)
     

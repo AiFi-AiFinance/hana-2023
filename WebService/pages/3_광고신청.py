@@ -13,8 +13,8 @@ st.markdown("***")
 # 사이드바
 with st.sidebar:
   st.text("아이러브커피")
-  image009 = Image.open('009.png')
-  st.image(image009)
+  image002 = Image.open('002.png')
+  st.image(image002)
 
 # 데이터 베이스 순서대로 store_code 와 ad_code 불러오기
 # from Database import get_store_code, get_ad_code

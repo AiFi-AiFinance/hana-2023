@@ -13,8 +13,8 @@ st.markdown("***")
 # 사이드바
 with st.sidebar:
     st.text("아이러브커피")
-    image007 = Image.open('007.png')
-    st.image(image007)
+    image003 = Image.open('003.png')
+    st.image(image003)
     
 import pandas as pd
 import numpy as np
