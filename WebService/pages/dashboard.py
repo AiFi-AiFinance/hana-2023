@@ -12,7 +12,7 @@ st.markdown("## KPI First Row")
 
 # kpi 1 
 
-kpi1, kpi2, kpi3 = st.beta_columns(3)
+kpi1, kpi2, kpi3 = st.columns(3)
 
 with kpi1:
     st.markdown("**First KPI**")
@@ -36,7 +36,7 @@ st.markdown("## KPI Second Row")
 
 # kpi 1 
 
-kpi01, kpi02, kpi03, kpi04, kpi05 = st.beta_columns(5)
+kpi01, kpi02, kpi03, kpi04, kpi05 = st.columns(5)
 
 with kpi01:
     st.markdown("**Another 1st KPI**")
@@ -67,7 +67,7 @@ st.markdown("<hr/>",unsafe_allow_html=True)
 
 st.markdown("## Chart Layout")
 
-chart1, chart2 = st.beta_columns(2)
+chart1, chart2 = st.columns(2)
 
 with chart1:
     chart_data = pd.DataFrame(np.random.randn(20, 3),columns=['a', 'b', 'c'])
