@@ -25,18 +25,18 @@ import numpy as np
 kpi1, kpi2, kpi3 = st.columns(3)
 
 with kpi1:
-    st.markdown("**First KPI**")
-    number1 = 111 
+    st.markdown("**가을 한정 수정과**")
+    number1 = 234
     st.markdown(f"<h1 style='text-align: center; color: red;'>{number1}</h1>", unsafe_allow_html=True)
 
 with kpi2:
-    st.markdown("**Second KPI**")
-    number2 = 222 
+    st.markdown("**2024 다이어리 예약 판매**")
+    number2 = 122 
     st.markdown(f"<h1 style='text-align: center; color: red;'>{number2}</h1>", unsafe_allow_html=True)
 
 with kpi3:
-    st.markdown("**Third KPI**")
-    number3 = 333 
+    st.markdown("**크리스마스 홀 케이크**")
+    number3 = 343 
     st.markdown(f"<h1 style='text-align: center; color: red;'>{number3}</h1>", unsafe_allow_html=True)
 
 st.markdown("<hr/>",unsafe_allow_html=True)
@@ -73,23 +73,23 @@ with kpi05:
 
 st.markdown("<hr/>",unsafe_allow_html=True)
 
-
-chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["광고하마", "광곰", "광아지"])
+drink = [[1,3,5,9,35,80],[10,13,25,19,35,40],[50,53,55,59,55,52]]
+chart_data = pd.DataFrame(drink, columns=["클릭수", "구매수", "만족"])
 st.line_chart(chart_data)
         
 # 페이지
 col1,col2,col3 = st.columns(3)
 with col1:
-    with st.expander("겨울 모자 광고"):
-        st.write("겨울 모자 광고")
+    with st.expander("가을 한정 수정과"):
+        st.write("가을 한정 수정과")
         st.bar_chart(chart_data)
 
 with col2:  
-    with st.expander("수정과 광고"):
-        st.write("겨울 모자 광고")
+    with st.expander("2024 다이어리 예약 판매"):
+        st.write("2024 다이어리 예약 판매")
         st.line_chart(chart_data) 
         
 with col3:  
-    with st.expander("수과 광고"):
-        st.write("겨울 모자 광고")
+    with st.expander("크리스마스 홀 케이크"):
+        st.write("크리스마스 홀 케이크")
         st.line_chart(chart_data) 
