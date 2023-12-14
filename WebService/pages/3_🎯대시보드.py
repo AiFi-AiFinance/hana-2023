@@ -2,6 +2,7 @@
 
 # 페이지 기본 설정
 import streamlit as st
+from PIL import Image
 # from st_pages import hide_pages
 st.set_page_config(page_title="광고하마 대시보드",page_icon="🦛",layout="wide")
 # hide_pages(["회원가입","광고연장"])
@@ -18,7 +19,7 @@ with st.sidebar:
 # 페이지 내용 
 import pandas as pd
 import pydeck as pdk
-from PIL import Image
+
 from urllib.error import URLError
 import numpy as np
 
