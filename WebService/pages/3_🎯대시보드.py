@@ -47,7 +47,7 @@ st.markdown("<hr/>",unsafe_allow_html=True)
 kpi01, kpi02, kpi03, kpi04, kpi05 = st.columns(5)
 
 with kpi01:
-    st.markdown("**Another 1st KPI**")
+    st.markdown("**MZ세대**")
     number1 = 111 
     st.markdown(f"<h1 style='text-align: center; color: yellow;'>{number1}</h1>", unsafe_allow_html=True)
 
@@ -73,7 +73,7 @@ with kpi05:
 
 st.markdown("<hr/>",unsafe_allow_html=True)
 
-drink = [[1,10,50],[3,13,53],[5,25,55],[9,19,59],[35,40,52]]
+drink = [[1,10,50],[3,13,53],[5,25,55],[9,19,59],[35,40,52],[45,60,52],[53,70,51],[70,64,59]]
 chart_data = pd.DataFrame(drink, columns=["클릭수", "구매수","만족"])
 st.line_chart(chart_data)
         
