@@ -74,7 +74,7 @@ with kpi05:
 st.markdown("<hr/>",unsafe_allow_html=True)
 
 drink = [[1,3,5,9,35,80],[10,13,25,19,35,40],[50,53,55,59,55,52]]
-chart_data = pd.DataFrame(drink, columns=["클릭수", "구매수", "만족"])
+chart_data = pd.DataFrame(drink)
 st.line_chart(chart_data)
         
 # 페이지
