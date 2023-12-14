@@ -73,8 +73,8 @@ with kpi05:
 
 st.markdown("<hr/>",unsafe_allow_html=True)
 
-drink = [[1,3,5,9,35,80],[10,13,25,19,35,40],[50,53,55,59,55,52]]
-chart_data = pd.DataFrame(drink)
+drink = [[1,10,50],[3,13,53],[5,25,55],[9,19,59],[35,40,52]]
+chart_data = pd.DataFrame(drink, columns=["클릭수", "구매수","만족"])
 st.line_chart(chart_data)
         
 # 페이지
@@ -91,5 +91,5 @@ with col2:
         
 with col3:  
     with st.expander("크리스마스 홀 케이크"):
-        st.write("크리스마스 홀 케이크")
+        st.write("크리스마스 홀 케이족")
         st.line_chart(chart_data) 
