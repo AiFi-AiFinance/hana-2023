@@ -11,7 +11,9 @@ st.markdown("***")
 
 # 사이드바
 with st.sidebar:
-  st.text("아이러브커피")
+    st.text("아이러브커피")
+    image003 = Image.open('003.png')
+    st.image(image003)
   
 # 페이지 내용 
 import pandas as pd
